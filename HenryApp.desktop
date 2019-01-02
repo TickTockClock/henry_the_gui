@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=HenryApp
+Terminal=true
+Exec=/home/t/code/gui/startprogram.sh
+Icon=/home/t/code/gui/hwr-logo.png

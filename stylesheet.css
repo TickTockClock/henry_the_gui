@@ -1,0 +1,10 @@
+
+         QPushButton { 
+             font-size: 15pt;
+             color: white;
+             background: rgb(140, 40, 0);
+             padding: 30 120; }
+
+         QToolTip { color: rgb(255, 255, 255);
+             background-color: rgb(20, 20, 20);
+             border: 1px solid white; } 
