@@ -1,0 +1,23 @@
+{
+"HOWMANYPROGRAMS": 5,
+"COLUMNS" : 3,
+"PROGRAMNAMES" : [
+        'AutoDrive',
+        'Program 1',
+        'Program 2',
+        'Program 3',
+        'Program 4'],
+"TOOLTIPS" : [
+        'Start your Autodrive program.',
+        'Start your second program.',
+        'Start your third program.',
+        'Start your forth program.',
+        'Start your fifth program.',
+        ],
+"COMMANDS" : [
+        '/home/t/code/gui/ubuntu-x64/publish/henry',
+        None,
+        'date'
+        ],
+"GENERALTOOLTIP" : 'Here goes your general introduction for your application.'
+        }

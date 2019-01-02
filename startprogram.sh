@@ -1,5 +1,11 @@
 #!/bin/bash
 
-cd ~/code/gui
-source ~/code/myenv3.6/bin/activate
-python ~/code/gui/box_gui.py
+## activate your python enviornment
+## e.g
+# source ~/myenv3.6/bin/activate
+
+## intall dependencies
+# pip install -r requirements.txt
+
+## run the app
+python ./gui.py
