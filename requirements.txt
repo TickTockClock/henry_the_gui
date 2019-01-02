@@ -1,0 +1,4 @@
+# These modules must be installed into your python enviornment
+# You should use at least python3.6
+
+PyQt5==5.11.3
