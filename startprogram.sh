@@ -1,11 +1,23 @@
 #!/bin/bash
 
-## activate your python enviornment
-## e.g
-# source ~/myenv3.6/bin/activate
+nameofenv='test'
+pythonpath=$(which python3)
 
-## intall dependencies
-# pip install -r requirements.txt
+# if no enviornment exists create a new one
+if [ ! -d $nameofenv ]; then
+
+	echo creating virtual enviornment and installing PyQt5
+
+	virtualenv -p $pythonpath $nameofenv
+
+	. $nameofenv/bin/activate
+
+	pip install -r requirements.txt
+
+fi
+
+## activate your python enviornment
+source $nameofenv/bin/activate
 
 ## run the app
 python ./gui.py

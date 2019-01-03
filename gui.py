@@ -61,7 +61,7 @@ class MainWindow(QWidget):
         self.programs = {}
         
         for i in range(self.FX['HOWMANYPROGRAMS']):
-            self.running_processes[f'process{i}']=None
+            self.running_processes[f'process{i}'] = None
             self.programs[f'program{i}'] = None
         
         print(f'''
@@ -190,13 +190,14 @@ class MainWindow(QWidget):
                 self.move(0, 0)
 
 
-#    << LAYOUTS
+#     << LAYOUTS
     def put_into_layout(self, programs, qbtn, sbtn):
         layout = QBoxLayout(2) # TopToBottom
         upper = QBoxLayout(2)
         lower = QBoxLayout(0) # LeftToRight
         upperboxes = {}
 
+#     calculation of boxlayout
         for i in range(self.FX['HOWMANYPROGRAMS']):
             columns = self.FX['COLUMNS']
             if i%columns == 0:
