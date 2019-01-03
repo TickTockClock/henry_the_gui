@@ -36,5 +36,5 @@ In the `functionalities.txt` you can edit the following parameters:
 *Note this is supposed to be a python dictionary so be aware of the syntax.*
 
 ## stylesheet
-* Here you can style the application with simple `css`. Use the `PyQt` classes for reference.
+Here you can style the application with simple `css`. Use the `PyQt` classes for reference.
 
