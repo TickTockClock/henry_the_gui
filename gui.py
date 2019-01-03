@@ -20,8 +20,8 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QDesktopWidget
 from PyQt5.QtWidgets import QToolTip, QHBoxLayout, QVBoxLayout, QGridLayout, QBoxLayout
 from PyQt5.QtGui import QFont, QIcon
 
-functionalities = 'functionality.txt'
-stylesheet = 'stylesheet.css'
+FUNCTIONALITIES = 'functionality.txt'
+STYLESHEET = 'stylesheet.css'
 
 #     read from files. If _eval for dict.
 def read_file_return(file, _eval=False):
@@ -44,8 +44,8 @@ class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
         
-        self.FX = read_file_return(functionalities, _eval=True)
-        self.CSS = read_file_return(stylesheet)
+        self.funcs = read_file_return(FUNCTIONALITIES, _eval=True)
+        self.css = read_file_return(STYLESHEET)
         
         self.quit_btn = None
         self.stop_btn = None
@@ -53,7 +53,7 @@ class MainWindow(QWidget):
         self.running_processes = {}
         self.programs = {}
         
-        for i in range(self.FX['HOWMANYPROGRAMS']):
+        for i in range(self.funcs['HOWMANYPROGRAMS']):
             self.running_processes[f'process{i}'] = None
             self.programs[f'program{i}'] = None
         
@@ -64,7 +64,7 @@ class MainWindow(QWidget):
         
         Below you can see your Functionalities:
 
-        {json.dumps(self.FX, indent=6)}
+        {json.dumps(self.funcs, indent=6)}
         
         ''')
         
@@ -79,8 +79,8 @@ class MainWindow(QWidget):
         self.setWindowTitle('Henry The Linux App')
         self.setWindowIcon(QIcon('hwr-logo.png'))
         QToolTip.setFont(QFont('SansSerif', 15))
-        self.setToolTip(self.FX['GENERALTOOLTIP'])
-        self.setStyleSheet(self.CSS)
+        self.setToolTip(self.funcs['GENERALTOOLTIP'])
+        self.setStyleSheet(self.css)
 
 #     class methods
         # self.window_to_center()
@@ -93,11 +93,11 @@ class MainWindow(QWidget):
     def init_widgets(self):
 
 #     check HOWMANYPROGRAMS to create as QPushButtons
-        for i in range(self.FX['HOWMANYPROGRAMS']):
+        for i in range(self.funcs['HOWMANYPROGRAMS']):
             try:
-                com = self.FX['COMMANDS'][i]
-                prog = self.FX['PROGRAMNAMES'][i]
-                tool = self.FX['TOOLTIPS'][i]
+                com = self.funcs['COMMANDS'][i]
+                prog = self.funcs['PROGRAMNAMES'][i]
+                tool = self.funcs['TOOLTIPS'][i]
             except:
                 com = None
                 prog = f'Program{i}'
@@ -162,7 +162,7 @@ class MainWindow(QWidget):
                 os.killpg(self.running_processes[f'process{i}'].pid, signal.SIGINT)
                 print(f'''Process: 
                 {self.running_processes[f'process{i}']}
-                {self.FX['COMMANDS'][i]} KILLED''')
+                {self.funcs['COMMANDS'][i]} KILLED''')
         
         print(f'See you next time Friend!')
         QApplication.instance().quit()
@@ -174,7 +174,7 @@ class MainWindow(QWidget):
             if not self.running_processes[f'process{i}'] == None:
                 os.killpg(self.running_processes[f'process{i}'].pid, signal.SIGINT)
                 print(f'''Process: {self.running_processes[f'process{i}']}
-                {self.FX['COMMANDS'][i]} KILLED''')
+                {self.funcs['COMMANDS'][i]} KILLED''')
                 self.running_processes[f'process{i}'] = None
                 self.programs[f'program{i}'].setEnabled(True)
                 self.stop_btn.setEnabled(False)
@@ -189,8 +189,8 @@ class MainWindow(QWidget):
         upperboxes = {}
 
 #     calculation of boxlayout
-        for i in range(self.FX['HOWMANYPROGRAMS']):
-            columns = self.FX['COLUMNS']
+        for i in range(self.funcs['HOWMANYPROGRAMS']):
+            columns = self.funcs['COLUMNS']
             if i%columns == 0:
                 upperboxes[f'box{i}'] = QBoxLayout(0)
                 for j in range(columns):
