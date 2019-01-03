@@ -10,7 +10,7 @@ if [ ! -d $nameofenv ]; then
 
 	virtualenv -p $pythonpath $nameofenv
 
-	. $nameofenv/bin/activate
+	source $nameofenv/bin/activate
 
 	pip install -r requirements.txt
 
