@@ -3,10 +3,10 @@
 nameofenv='test'
 pythonpath=$(which python3)
 
-# if no enviornment exists create a new one
+# if no environment exists create a new one
 if [ ! -d $nameofenv ]; then
 
-	echo creating virtual enviornment and installing PyQt5
+	echo creating virtual environment and installing PyQt5
 
 	virtualenv -p $pythonpath $nameofenv
 
