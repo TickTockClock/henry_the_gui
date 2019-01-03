@@ -8,12 +8,6 @@ to execute bash commands.
 
 The MainWindow class inherits from QWidget.
 
-The init_gui() initializes the GUI by:
-    * Using a QWidget Stylesheet (see below).
-    * Setting up the Frame.
-    * Moving the Window to the center (see below).
-    * Creating and adjusting the widgets (see below).
-    * And Building them all.
 '''
 
 import sys
@@ -29,14 +23,14 @@ from PyQt5.QtGui import QFont, QIcon
 functionalities = 'functionality.txt'
 stylesheet = 'stylesheet.css'
 
-#     Read from files. If _eval for dict
+#     read from files. If _eval for dict.
 def read_file_return(file, _eval=False):
     with open(file, 'r') as stream:
         if _eval:
             return eval(stream.read())
         return stream.read()
 
-#     
+#     build the app
 def build_gui():
     
     application = QApplication(sys.argv)
@@ -45,7 +39,6 @@ def build_gui():
 
 
 class MainWindow(QWidget):
-
 
 #     CONSTRUCTOR inherits from QWidget
     def __init__(self):
@@ -95,7 +88,6 @@ class MainWindow(QWidget):
 
 #     init all
         self.show()
-
 
 #     ALL WIDGETS >> BUTTONS
     def init_widgets(self):
@@ -189,7 +181,6 @@ class MainWindow(QWidget):
                 self.resize(1000, 600,)
                 self.move(0, 0)
 
-
 #     << LAYOUTS
     def put_into_layout(self, programs, qbtn, sbtn):
         layout = QBoxLayout(2) # TopToBottom
@@ -222,7 +213,6 @@ class MainWindow(QWidget):
         center = QDesktopWidget().availableGeometry().center()
         geo.moveCenter(center)
         self.move(geo.topLeft())
-
 
 
 #       Run the script
