@@ -2,7 +2,7 @@
 
 '''
 This application uses the PyQt5 framework to build a 
-graphical user interface and runs on python3.6 or later.
+graphical user interface and runs on python3.5 or later.
 Also the subprocess and signal module are being used
 to execute bash commands.
 
@@ -54,19 +54,19 @@ class MainWindow(QWidget):
         self.programs = {}
         
         for i in range(self.funcs['HOWMANYPROGRAMS']):
-            self.running_processes[f'process{i}'] = None
-            self.programs[f'program{i}'] = None
+            self.running_processes['process{}'.format(i)] = None
+            self.programs['program{}'.format(i)] = None
         
-        print(f'''
+        print('''
         Hello there Friend.
         
         Welcome to your Henry Volksbot Application...
         
         Below you can see your Functionalities:
 
-        {json.dumps(self.funcs, indent=6)}
+        {}
         
-        ''')
+        '''.format(json.dumps(self.funcs, indent=6)))
         
         self.init_gui()
 
@@ -100,10 +100,10 @@ class MainWindow(QWidget):
                 tool = self.funcs['TOOLTIPS'][i]
             except:
                 com = None
-                prog = f'Program{i}'
-                tool = f'Tooltip{i}'
+                prog = 'Program{}'.format(i)
+                tool = 'Tooltip{}'.format(i)
 
-            self.programs[f'program{i}'] = self.create_button(
+            self.programs['program{}'.format(i)] = self.create_button(
                 btn_label=prog,
                 tooltip=tool,
                 command=com,
@@ -142,14 +142,16 @@ class MainWindow(QWidget):
     def start_bash_process(self, command, process=None):
         print(command)
         if command:
-            self.running_processes[f'process{process}'] = sp.Popen(
+            self.running_processes['process{}'.format(process)] = sp.Popen(
             'gnome-terminal --disable-factory -e "%s"' % command, shell=True, preexec_fn=os.setpgrp)
         
-            print(f'''Process: 
-            {self.running_processes[f'process{process}'].__class__}
-            {command} STARTED''')
+            print('''Process: 
+            {}
+            {} STARTED''').format(
+            self.running_processes['process{}'.format(process)].__class__,
+            command)
          
-            self.programs[f'program{process}'].setEnabled(False)
+            self.programs['program{}'.format(process)].setEnabled(False)
             self.stop_btn.setEnabled(True)
             return
             
@@ -158,25 +160,31 @@ class MainWindow(QWidget):
 #      > QUIT
     def quit_gui(self):
         for i in range(len(self.running_processes)):
-            if self.running_processes[f'process{i}']:
-                os.killpg(self.running_processes[f'process{i}'].pid, signal.SIGINT)
-                print(f'''Process: 
-                {self.running_processes[f'process{i}']}
-                {self.funcs['COMMANDS'][i]} KILLED''')
+            if self.running_processes['process{}'.format(i)]:
+                os.killpg(self.running_processes['process{}'.format(i)].pid, signal.SIGINT)
+                print('''Process: 
+                {]}
+                {} KILLED'''.format(
+                self.running_processes['process{}'.format(i)],
+                self.funcs['COMMANDS'][i]))
         
-        print(f'See you next time Friend!')
+        print('See you next time Friend!')
         QApplication.instance().quit()
 
 #     > STOP
     def stop_bash_process(self):
     
         for i in range(len(self.running_processes)):
-            if not self.running_processes[f'process{i}'] == None:
-                os.killpg(self.running_processes[f'process{i}'].pid, signal.SIGINT)
-                print(f'''Process: {self.running_processes[f'process{i}']}
-                {self.funcs['COMMANDS'][i]} KILLED''')
-                self.running_processes[f'process{i}'] = None
-                self.programs[f'program{i}'].setEnabled(True)
+            if not self.running_processes['process{}'.format(i)] == None:
+                os.killpg(self.running_processes['process{i}'.format(i)].pid, signal.SIGINT)
+                print('''
+                Process: {}
+                {} KILLED'''.format(
+                self.running_processes['process{}'.format(i)],
+                self.funcs['COMMANDS'][i]))
+                
+                self.running_processes['process{}'.format(i)] = None
+                self.programs['program{}'.format(i)].setEnabled(True)
                 self.stop_btn.setEnabled(False)
                 self.resize(1000, 600,)
                 self.move(0, 0)
@@ -192,13 +200,13 @@ class MainWindow(QWidget):
         for i in range(self.funcs['HOWMANYPROGRAMS']):
             columns = self.funcs['COLUMNS']
             if i%columns == 0:
-                upperboxes[f'box{i}'] = QBoxLayout(0)
+                upperboxes['box{}'.format(i)] = QBoxLayout(0)
                 for j in range(columns):
                     try:
-                        upperboxes[f'box{i}'].addWidget(programs[f'program{j+i}'])
+                        upperboxes['box{}'.format(i)].addWidget(programs['program{}'.format(j+i)])
                     except:
                         continue
-                upper.addLayout(upperboxes[f'box{i}'])
+                upper.addLayout(upperboxes['box{}'.format(i)])
 
         lower.addWidget(qbtn)
         lower.addWidget(sbtn)
