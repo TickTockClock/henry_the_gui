@@ -187,7 +187,7 @@ class MainWindow(QWidget):
                 self.running_processes['process{}'.format(i)] = None
                 self.programs['program{}'.format(i)].setEnabled(True)
                 self.stop_btn.setEnabled(False)
-                self.resize(1000, 600,)
+                self.resize(400, 200,)
                 self.move(0, 0)
 
 #     << LAYOUTS
