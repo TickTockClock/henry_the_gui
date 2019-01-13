@@ -163,7 +163,7 @@ class MainWindow(QWidget):
             if self.running_processes['process{}'.format(i)]:
                 os.killpg(self.running_processes['process{}'.format(i)].pid, signal.SIGINT)
                 print('''Process: 
-                {]}
+                {}
                 {} KILLED'''.format(
                 self.running_processes['process{}'.format(i)],
                 self.funcs['COMMANDS'][i]))
@@ -176,9 +176,10 @@ class MainWindow(QWidget):
     
         for i in range(len(self.running_processes)):
             if not self.running_processes['process{}'.format(i)] == None:
-                os.killpg(self.running_processes['process{i}'.format(i)].pid, signal.SIGINT)
+                os.killpg(self.running_processes['process{}'.format(i)].pid, signal.SIGINT)
                 print('''
-                Process: {}
+                Process: 
+                {}
                 {} KILLED'''.format(
                 self.running_processes['process{}'.format(i)],
                 self.funcs['COMMANDS'][i]))
