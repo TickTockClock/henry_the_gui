@@ -147,9 +147,9 @@ class MainWindow(QWidget):
         
             print('''Process: 
             {}
-            {} STARTED''').format(
+            {} STARTED'''.format(
             self.running_processes['process{}'.format(process)].__class__,
-            command)
+            command))
          
             self.programs['program{}'.format(process)].setEnabled(False)
             self.stop_btn.setEnabled(True)
