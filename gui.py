@@ -74,7 +74,7 @@ class MainWindow(QWidget):
     def init_gui(self):
     
 #     pyqt gui general settings
-        self.resize(1000, 600,) # width, hight
+        self.resize(400, 200,) # width, hight
         self.move(0, 0) # x, y
         self.setWindowTitle('Henry The Linux App')
         self.setWindowIcon(QIcon('hwr-logo.png'))
