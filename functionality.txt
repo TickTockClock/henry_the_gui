@@ -6,7 +6,8 @@
         'Program 1',
         'Program 2',
         'Program 3',
-        'Program 4'],
+        'Program 4'
+	],
 "TOOLTIPS" : [
         'Start your Autodrive program.',
         'Start your second program.',
@@ -15,9 +16,11 @@
         'Start your fifth program.',
         ],
 "COMMANDS" : [
-        '/home/t/code/gui/ubuntu-x64/publish/henry',
-        None,
-        'date'
+        '/home/pi/code/henry_0.0/publish/henry',
+	'echo "replace this line with bash command"',
+	'echo "replace this line with bash command"',
+	'echo "replace this line with bash command"',
+	'echo "replace this line with bash command"'
         ],
 "GENERALTOOLTIP" : 'Here goes your general introduction for your application.'
         }

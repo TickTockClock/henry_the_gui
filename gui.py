@@ -22,6 +22,7 @@ from PyQt5.QtGui import QFont, QIcon
 
 FUNCTIONALITIES = 'functionality.txt'
 STYLESHEET = 'stylesheet.css'
+WINDOW_DIM = [600, 400]
 
 #     read from files. If _eval for dict.
 def read_file_return(file, _eval=False):
@@ -72,9 +73,8 @@ class MainWindow(QWidget):
 
 #     INITIALIZE GUI
     def init_gui(self):
-    
 #     pyqt gui general settings
-        self.resize(400, 200,) # width, hight
+        self.resize(WINDOW_DIM[0], WINDOW_DIM[1]) # width, hight
         self.move(0, 0) # x, y
         self.setWindowTitle('Henry The Linux App')
         self.setWindowIcon(QIcon('hwr-logo.png'))
@@ -143,7 +143,10 @@ class MainWindow(QWidget):
         print(command)
         if command:
             self.running_processes['process{}'.format(process)] = sp.Popen(
-            'gnome-terminal --disable-factory -e "%s"' % command, shell=True, preexec_fn=os.setpgrp)
+            'xfce4-terminal --hold --disable-server ' +
+            '--geometry 0x10+10+10 -e "%s" 2>/dev/null' 
+            % command, shell=True, preexec_fn=os.setpgrp
+            )
         
             print('''Process: 
             {}
@@ -187,7 +190,7 @@ class MainWindow(QWidget):
                 self.running_processes['process{}'.format(i)] = None
                 self.programs['program{}'.format(i)].setEnabled(True)
                 self.stop_btn.setEnabled(False)
-                self.resize(400, 200,)
+                self.resize(WINDOW_DIM[0], WINDOW_DIM[1])
                 self.move(0, 0)
 
 #     << LAYOUTS

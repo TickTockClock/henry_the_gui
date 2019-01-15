@@ -1,10 +1,13 @@
+* { 
+	font-size: 12pt;
+	color: rgba(140, 40, 0, 0.9);
+}
+QPushButton {
+	padding: 20 50;
+}
 
-         QPushButton { 
-             font-size: 10pt;
-             color: white;
-             background: rgb(140, 40, 0);
-             padding: 10; }
 
-         QToolTip { color: rgb(255, 255, 255);
-             background-color: rgb(20, 20, 20);
-             border: 1px solid white; } 
+QToolTip {
+	/*color: rgb(255, 255, 255);*/
+	/*background-color: rgb(20, 20, 20);*/
+	border: 1px solid white; } 
