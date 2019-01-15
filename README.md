@@ -1,6 +1,9 @@
 # Henry the GUI Application
 
-## startprogram
+## General
+
+#### only valid for executing master branch on ubuntu 16 desktop distribution
+
 ***Please make sure Python3.6 or later is installed on your computer!***
 
 This is the desktop application.
@@ -8,6 +11,7 @@ The script will create a virtual environment and install the required modules be
 
 Open the `startprogram.sh` to rename the environment  `nameofenv` or specify the `pythonpath`if needed.
 
+### run the app on Raspbian or Ubuntu
 The program can be executed by running:
 ```bash
 source startprogram.sh
