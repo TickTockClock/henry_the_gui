@@ -4,6 +4,11 @@
 ## This branch works only with Python3.6 or later and is designed for Ubuntu 16!
 This is the desktop application.
 
+Clone this branch by running:
+```bash
+git clone git@github.com:TickTockClock/henry_the_gui.git
+```
+
 The script will create a virtual environment and install the required modules before executing `gui.py`.
 
 Open the `startprogram.sh` to rename the environment  `nameofenv` or specify the `pythonpath`if needed.
