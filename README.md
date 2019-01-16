@@ -5,6 +5,11 @@
 
 This is the GUI application.
 
+Clone this branch by running:
+```bash
+git clone -b raspberry_pi git@github.com:TickTockClock/henry_the_gui.git
+```
+
 ### Run the app 
 The program can be executed by running:
 ```bash
