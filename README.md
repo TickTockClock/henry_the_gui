@@ -1,17 +1,11 @@
+
 # Henry the GUI Application
 
-## General
+## This branch works only with Python3.5 or later and is designed for the Raspberry Pi!
 
-#### only valid for executing master branch on ubuntu 16 desktop distribution
+This is the GUI application.
 
-***Please make sure Python3.6 or later is installed on your computer!***
-
-This is the desktop application.
-The script will create a virtual environment and install the required modules before executing `gui.py`.
-
-Open the `startprogram.sh` to rename the environment  `nameofenv` or specify the `pythonpath`if needed.
-
-### run the app on Raspbian or Ubuntu
+### Run the app 
 The program can be executed by running:
 ```bash
 source startprogram.sh
